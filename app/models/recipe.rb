@@ -1,2 +1,3 @@
-class Recipe < ActiveRecord::Base
+class Recipe < ApplicationRecord
+  belongs_to :cuisine
 end
