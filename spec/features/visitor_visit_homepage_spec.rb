@@ -1,4 +1,4 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 feature 'Visitor visit homepage' do
   scenario 'successfully' do
@@ -12,8 +12,9 @@ feature 'Visitor visit homepage' do
     #cria os dados necessários
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
-                          cuisine: cuisine, difficulty: 'Médio', 
-                          cook_time: 60)
+                          cuisine: cuisine, difficulty: 'Médio',
+                          cook_time: 60, method: 'Mistura tudo',
+                          ingredients: 'Um monte de coisa')
 
     # simula a ação do usuário
     visit root_path
@@ -31,11 +32,13 @@ feature 'Visitor visit homepage' do
     cuisine = Cuisine.create(name: 'Brasileira')
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: 'Sobremesa',
                           cuisine: cuisine, difficulty: 'Médio',
-                          cook_time: 60)
+                          cook_time: 60, method: 'Mistura tudo',
+                          ingredients: 'Um monte de coisa')
 
     another_recipe = Recipe.create(title: 'Feijoada', recipe_type: 'Prato Principal',
                           cuisine: cuisine, difficulty: 'Difícil',
-                          cook_time: 90)
+                          cook_time: 90, method: 'Mistura tudo',
+                          ingredients: 'Um monte de coisa')
 
     # simula a ação do usuário
     visit root_path
