@@ -1,13 +1,6 @@
-<%= form_for @cuisine do |f| %>
-  <%= flash[:error] %>
-  <% @cuisine.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.submit "Enviar" %>
-  </div>
-<% end %>
+<h1>Criar nova Cozinha</h1>
+
+<%= flash[:error] %>
+<%= render partial: 'shared/errors', locals: { object: @cuisine } %>
+
+<%= render partial: 'form' %>
