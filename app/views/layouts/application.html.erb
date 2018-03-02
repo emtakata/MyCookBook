@@ -9,11 +9,22 @@
   </head>
 
   <body>
+    <nav>
+      <% if user_signed_in? %>
+        <p>Bem-vindo <%= current_user.email %></p>
+        <p><%= link_to 'Sair', destroy_user_session_path, method: :delete %></p>
+      <% else %>
+        <%= link_to 'Entrar', new_user_session_path %>
+      <% end %>
+    </nav>
     <%= form_tag("/search", method: :get) do %>
       <%= label_tag :q, 'Buscar receita' %>
       <%= text_field_tag :q %>
       <%= submit_tag 'Buscar' %>
     <% end %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
   </body>
